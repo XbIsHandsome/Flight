@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+ <hibernate-mapping>
+ 	<class name="com.xubing.bean.Ticket" table="ticket">
+ 		<id name="tid" column="tid">
+			<generator class="native"/>
+ 		</id>
+ 		<many-to-one name="user" column="uid" class="com.xubing.bean.User" lazy="false"/>
+ 		<many-to-one name="flight" column="fid" class="com.xubing.bean.Flight" lazy="false"/>
+ 	</class>
+ 
+ </hibernate-mapping>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <constant name="struts.devMode" value="false" />
+
+	
+	<package name="shop" extends="struts-default" namespace="/">
+		<global-results>
+			<result name="login">/WEB-INF/jsp/login.jsp</result>
+		</global-results>
+		<!-- 配置首页访问的Action -->
+		<action name="index" class="indexAction">
+			<result name="index">/WEB-INF/jsp/index.jsp</result>
+		</action>
+		<!-- 登录验证码请求 -->
+		<action name="checkimg" class="checkImg" >
+		</action>
+		<!-- user的注册和登录 -->
+		<action name="user_*" class="usertAction" method="{1}">
+			<result name="registPage">/WEB-INF/jsp/regist.jsp</result>
+			<result name="loginPage">/WEB-INF/jsp/login.jsp</result>
+			<result name="loginSuccess" type="redirectAction">index</result>
+			<result name="LOGIN">/WEB-INF/jsp/login.jsp</result>
+		</action>
+		<!-- 飞机查询 -->
+		<action name="flight_*" class="flightAction" method="{1}">
+			<result name="FlightShow">/WEB-INF/jsp/FlightShow.jsp</result>
+			<result name="FlightShow_Error">/WEB-INF/jsp/Error.jsp</result>
+			<result name="success">/WEB-INF/jsp/success.jsp</result>
+			<result name="add_success">/WEB-INF/jsp/success.jsp</result>
+		</action>
+		<!-- 票务查询 -->
+		<action name="ticket_*" class="ticketAction" method="{1}">
+			<result name="success">/WEB-INF/jsp/index.jsp</result>
+			<result name="buy_error">/WEB-INF/jsp/Error.jsp</result>
+		</action>
+		<!-- 航班管理 -->
+		<action name="admin_*" class="adminAction" method="{1}">
+			<result name="loginPage">/WEB-INF/jsp/admin_login.jsp</result>
+			<result name="loginSuccess">/WEB-INF/jsp/manage.jsp</result>
+		</action>
+	</package>
+</struts>

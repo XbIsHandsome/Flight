@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+ <hibernate-mapping>
+ 	<class name="com.xubing.bean.Flight" table="flight">
+ 		<id name="fid" column="fid">
+			<generator class="native"/>
+ 		</id>
+ 		<property name="flight_from"/>
+ 		<property name="flight_to"/>
+ 		<property name="flight_time"/>
+ 		<property name="flight_price"/>
+ 		<property name="flight_seat"/>
+ 	</class>
+ 
+ </hibernate-mapping>
